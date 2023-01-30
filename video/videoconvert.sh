@@ -6,7 +6,7 @@
 if [ -z "$1" ]
 then
     echo "Usage: ./videoconvert.sh <foldername> [-deletebmps]"
-    echo "Example: ./videoconvert.sh gigachad -deletebmps"
+    echo "Example: ./videoconvert.sh myvideo -deletebmps"
     echo "Folder must be inside frames folder"
     exit 1
 fi
