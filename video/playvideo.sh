@@ -6,7 +6,7 @@ if [ -z "$1" ] || [ -z "$2" ]
 then
     echo "Usage: ./playvideo.sh <foldername> <scale> [framerate]"
     echo "Default framerate is 30"
-    echo "Example: ./playvideo.sh gigachad 5"
+    echo "Example: ./playvideo.sh myvideo 5"
     echo "Increased scale decreases video size"
     echo "Folder must be inside frames folder"
     exit 1
