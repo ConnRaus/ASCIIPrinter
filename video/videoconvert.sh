@@ -18,6 +18,9 @@ if [ -n "$(find $path -name "*.bmp" -print -quit)" ]
 then
     find $path -name "*.asc" -print0 | xargs -0 rm
     echo "Removed all .asc files in $path"
+else
+    echo "Conversion failed. No .bmp files found in folder ASCIIPrinter/video/frames/$1!"
+    exit 1
 fi
 
 
