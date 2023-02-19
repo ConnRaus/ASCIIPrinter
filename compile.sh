@@ -1,5 +1,5 @@
 # compiles video/bmp2ascvideo.c as convertvideoframes
-gcc video/bmp2ascvideo.c -o convertvideoframes -O3
+gcc video/bmp2ascvideo.c -o video/convertvideoframes -O3
 
 if [ $? -eq 0 ]
 then
@@ -10,7 +10,7 @@ else
 fi
 
 # compiles video/asciiprintervideo.c as viewasciivideo
-gcc video/asciiprintervideo.c -o viewasciivideo -O3
+gcc video/asciiprintervideo.c -o video/viewasciivideo -O3
 
 if [ $? -eq 0 ]
 then
