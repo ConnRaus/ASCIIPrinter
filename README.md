@@ -10,7 +10,7 @@ If any of the `.sh` files give a permission error, you may need to elevate them!
 
 ### Photo convert
 
-To start use `./compile.sh` to compile ASCIIPrinter Photo. This will generate the `convert` and `print` files. 
+To start use `./compile.sh` to compile both ASCIIPrinter Photo and Video.
 
 To convert your photos to .asc, simply place your .bmp files into the "images" folder, and run `./convert <input filename, no extension>`. 
 
@@ -32,9 +32,9 @@ Once you run the print command you should see your ascii image print in the term
 
 While the AsciiPrinter program wasn't initally intended to play videos, when I saw how fast it ran at a reasonable size I just had to get it to play video.
 
-Everything for ASCIIPrinter Video is located in the video folder. to get there, type `cd video`.
+If you haven't used `./compile.sh` in the root directory yet, please do it now to compile ASCIIPrinter Video.
 
-Once in the video folder, type `./compile.sh` to compile everything needed for ASCIIPrinter Video.
+Everything for ASCIIPrinter Video is located in the video folder. to get there, type `cd video`.
 
 ### Video convert
 
