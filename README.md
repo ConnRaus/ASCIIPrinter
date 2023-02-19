@@ -38,6 +38,8 @@ Everything for ASCIIPrinter Video is located in the video folder. to get there, 
 
 ### Video convert
 
+__360p VIDEOS ARE RECOMMENDED__. 
+
 To convert videos, you will first have to have the frames separated into .bmp files. These image files(and the .asc that my program generates) are uncompressed, so videos at a relatively low resolution and that are under a minute are recommended to save hard drive space. That being said, if you are fine with using more space, higher resolution and/or longer videos will work fine. 
 
 Once you have your folder of frames in .bmp format, drag the whole folder into the `frames` folder. This allows you to have multiple videos at once, as whatever the name of your folder is, is what you will use to run the commands. 
