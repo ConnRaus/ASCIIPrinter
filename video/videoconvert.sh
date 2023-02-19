@@ -6,7 +6,7 @@
 if [ -z "$1" ]
 then
     echo "Usage: ./videoconvert.sh <foldername> [-deletebmps]"
-    echo "Example: ./videoconvert.sh myvideo -deletebmps"
+    echo "Example: ./videoconvert.sh gigachad -deletebmps"
     echo "Folder must be inside frames folder"
     exit 1
 fi
@@ -14,18 +14,18 @@ fi
 path="frames/$1/"
 
 #if .bmp files are in the folder, delete all .asc files
-if [ -f "$path*.bmp" ]
+if [ -n "$(find $path -name "*.bmp" -print -quit)" ]
 then
-    rm "$path*.asc"
+    find $path -name "*.asc" -print0 | xargs -0 rm
+    echo "Removed all .asc files in $path"
 fi
 
-#converts files
-for file in $path*.bmp
-do
-    filename=$(basename "$file")
+
+convert() {
+    filename=$(basename "$1")
     extension="${filename###*.}"
     filename="${filename%.*}"
-    filename="$1/$filename"
+    filename="$2/$filename"
 
     #make sure ./convertvideoframes runs successfully
     #./program; echo $? will print 0 if successful, 1 if not
@@ -36,13 +36,32 @@ do
         echo "Failed to convert $filename"
         exit 1
     fi
-done
+}
+
+
+# multi-threaded conversion
+# Use convert function as convert(filename<no extension>, foldername)
+# Output files as 000001.asc, 000002.asc, etc.
+export -f convert
+find $path -name "*.bmp" -print0 | xargs -0 -n1 -P8 -I{} bash -c 'convert "{}" "$1"' _ "$1"
+# -print0 separates files with null character
+# -0 means null character is separator
+# -n1: one file per command
+# -P8: 8 processes
+# -I{}: replace {} with file name
+# convert "{}" "$1": run convert function with file name and folder name
+# _ "$1": replace _ with folder name
+
+
+
+
 
 #find all files in frames folder
 #rename all .asc files in folder to ######.asc
 i=0
 for file in $path*.asc
 do
+    # checks each filename number and puts it in correct format. lt=less than.
     i=$((i+1))
     if [ $i -lt 10 ]
     then
@@ -75,7 +94,6 @@ then
         echo "No .asc files in folder! Conversion failed!"
         exit 1
     else
-        #allow for mass file deletion
         find . -name "*.bmp" -print0 | xargs -0 rm
         echo "Removed all .bmp files in $path"
     fi
