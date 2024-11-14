@@ -6,6 +6,9 @@ ASCIIPrinter features a custom file format for storing and retrieving ASCII phot
 
 If any of the `.sh` files give a permission error, you may need to elevate them! Do this by typing `chmod +x <file>`. They should then be executable.
 
+Realtime video of the project running the Shrek trailer at full 30fps 360p resolution (640x360, 230,400pixels/frame):
+[![YouTube](http://i.ytimg.com/vi/UPSTB_W0x_U/hqdefault.jpg)](https://www.youtube.com/watch?v=UPSTB_W0x_U)
+
 ## ASCIIPrinter Photo
 
 ### Photo convert
